@@ -16,28 +16,14 @@ Solution:
 
 ```js
 const number = busStops => {
-	let enterArr = []
-	let leftArr = []
-	busStops.forEach(ent => {
-		ent.reduce(acc => {
-			enterArr.push(acc)
-		})
-	})
-	enterArr = enterArr.reduce((acc, curr) => {
-		return acc + curr
-	})
+	let enter = 0
+	let leave = 0
 
-	busStops.forEach(ent => {
-		ent.reduce((acc, curr) => {
-			leftArr.push(curr)
-		})
+	busStops.forEach(persons => {
+		enter += persons[0]
+		leave += persons[1]
 	})
-
-	leftArr = leftArr.reduce((acc, curr) => {
-		return acc + curr
-	})
-
-	return enterArr - leftArr
+	return enter - leave
 }
 ```
 
